@@ -11,6 +11,9 @@
 		1557C2A12648AE7E002311CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557C2A02648AE7E002311CE /* ContentView.swift */; };
 		1557C2A32648AE7E002311CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1557C2A22648AE7E002311CE /* Assets.xcassets */; };
 		1557C2A62648AE7E002311CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1557C2A52648AE7E002311CE /* Preview Assets.xcassets */; };
+		1557C2AE2648AEB2002311CE /* GoogleServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557C2AD2648AEB2002311CE /* GoogleServer.swift */; };
+		1557C2B12648B4D1002311CE /* PlaylistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557C2B02648B4D1002311CE /* PlaylistService.swift */; };
+		1557C2B52648B5B4002311CE /* PlaylistVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557C2B42648B5B4002311CE /* PlaylistVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		1557C2A22648AE7E002311CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1557C2A52648AE7E002311CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1557C2A72648AE7E002311CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1557C2AD2648AEB2002311CE /* GoogleServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleServer.swift; sourceTree = "<group>"; };
+		1557C2B02648B4D1002311CE /* PlaylistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistService.swift; sourceTree = "<group>"; };
+		1557C2B42648B5B4002311CE /* PlaylistVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,9 @@
 		1557C29D2648AE7E002311CE /* PaginationExample */ = {
 			isa = PBXGroup;
 			children = (
+				1557C2B32648B59D002311CE /* ViewModels */,
+				1557C2B22648B570002311CE /* Services */,
+				1557C2AF2648B4B4002311CE /* Server */,
 				1557C29E2648AE7E002311CE /* PaginationExampleApp.swift */,
 				1557C2A02648AE7E002311CE /* ContentView.swift */,
 				1557C2A22648AE7E002311CE /* Assets.xcassets */,
@@ -67,6 +76,30 @@
 				1557C2A52648AE7E002311CE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1557C2AF2648B4B4002311CE /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				1557C2AD2648AEB2002311CE /* GoogleServer.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		1557C2B22648B570002311CE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1557C2B02648B4D1002311CE /* PlaylistService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1557C2B32648B59D002311CE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1557C2B42648B5B4002311CE /* PlaylistVM.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1557C2AE2648AEB2002311CE /* GoogleServer.swift in Sources */,
 				1557C2A12648AE7E002311CE /* ContentView.swift in Sources */,
 				1557C29F2648AE7E002311CE /* PaginationExampleApp.swift in Sources */,
+				1557C2B52648B5B4002311CE /* PlaylistVM.swift in Sources */,
+				1557C2B12648B4D1002311CE /* PlaylistService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

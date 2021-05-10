@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var playlistVM = PlaylistVM()
+    
     var body: some View {
-        Text("Hello, world!")
+        Text(playlistVM.numbers.isEmpty ? "Hello, world!" : "\(playlistVM.numbers.count) items")
             .padding()
     }
 }
