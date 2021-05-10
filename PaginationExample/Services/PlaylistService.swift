@@ -13,8 +13,10 @@ class PlaylistService: NSObject {
     let googleServer = GoogleServer()
     
     // This is the basic request which will get you batches of data independent of your logic
-    func getOneBatch(nextPageToken: String?, completion: (ResponseExample?, Error?) -> ()) {
-        googleServer.serverAPI(token: nextPageToken, completion: completion)
+    func getOneBatch(nextPageToken: String?, completion: @escaping(ResponseExample?, Error?) -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(900)) {
+            self.googleServer.serverAPI(token: nextPageToken, completion: completion)
+        }
     }
     
     

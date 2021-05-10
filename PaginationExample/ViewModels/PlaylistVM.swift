@@ -20,23 +20,31 @@ class PlaylistVM: ObservableObject {
     }
     
     
-    func getAllData(completion: ([Int]?, Error?) -> ()) {
+    func getAllData(completion: @escaping([Int]?, Error?) -> ()) {
         var isFirstRequest = true
         var token: String? = nil
+        let group = DispatchGroup()
         if isFirstRequest {
+            group.enter()
             playlistService.getOneBatch(nextPageToken: token) { response, error in
                 isFirstRequest = false
                 token = response?.nextPageToken
-                numbers.append(contentsOf: response!.items)
+                self.numbers.append(contentsOf: response!.items)
                 print("Received: \(String(describing: response?.items)), nextPageToken: \(String(describing: token))")
+                group.leave()
                 while !isFirstRequest && token != nil {
-                    playlistService.getOneBatch(nextPageToken: token) { response, error in
+                    group.enter()
+                    self.playlistService.getOneBatch(nextPageToken: token) { response, error in
                         token = response?.nextPageToken
-                        numbers.append(contentsOf: response!.items)
+                        self.numbers.append(contentsOf: response!.items)
                         print("Received: \(String(describing: response?.items)), nextPageToken: \(String(describing: token))")
+                        group.leave()
                     }
+                    group.wait()
                 }
-                completion(numbers, nil)
+                group.notify(queue: DispatchQueue.global()) {
+                    completion(self.numbers, nil)
+                }
             }
         }
     }
