@@ -24,12 +24,12 @@ class GoogleServer: NSObject {
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8]
     
     
-    func serverAPI(token: String?, completion: (ResponseExample?, Error?) -> ()) {
+    func serverAPI(token: String?, completion: (Result<ResponseExample, HTTPError>) -> ()) {
         print("SERVER SIDE: \(String(describing: token))")
         if let token = token {
-            completion(ResponseExample(id: UUID(), items: data(for: token), nextPageToken: getNextToken(currentToken: token)), nil)
+            completion(.success(ResponseExample(id: UUID(), items: data(for: token), nextPageToken: getNextToken(currentToken: token))))
         } else {
-            completion(ResponseExample(id: UUID(), items: Array(numbers[0...1]), nextPageToken: "second"), nil)
+            completion(.success(ResponseExample(id: UUID(), items: Array(numbers[0...1]), nextPageToken: "second")))
         }
     }
     
@@ -55,5 +55,7 @@ class GoogleServer: NSObject {
             return nil
         }
     }
+    
+    
     
 }
